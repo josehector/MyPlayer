@@ -16,7 +16,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         val id: Int = intent.getIntExtra(ID, -1)
-        MediaProvider.dataAsync { media ->
+        MediaProvider.dataAsync("cats") { media ->
             media.find { it.id == id }?.let { item ->
                 supportActionBar?.title = item.title
                 detail_thumb.loadUrl(item.thumbUrl)
